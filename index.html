@@ -3,55 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musik-Stream</title>
+    <title>Musik Stream</title>
 </head>
 <body>
-    <h1>Willkommen auf meiner Musik-Stream-Seite</h1>
-    
-    <!-- Audio Player, der automatisch abgespielt wird und im Loop läuft -->
-    <audio id="audio-player" autoplay loop>
-        <source src="https://www.dropbox.com/scl/fi/sdrt1fnzdjj63m0p2svfv/Beauty-of-Annihilation-Remix-The-Giant-Easter-Egg-Song-Black-Ops-III-_The-Giant_-DLC.mp3?dl=1" type="audio/mp3">
-        Dein Browser unterstützt das Audio-Element nicht.
+    <h1>Willkommen zum Musikstream!</h1>
+    <audio id="audioPlayer" controls autoplay loop>
+        <source id="audioSource" src="" type="audio/mp3">
+        Dein Browser unterstützt das Abspielen von Audio-Dateien nicht.
     </audio>
-
     <script>
-        // Liste der Songs (20 Songs hier als Beispiel, kannst du erweitern)
-        const songs = [
-            "https://www.dropbox.com/scl/fi/sdrt1fnzdjj63m0p2svfv/Beauty-of-Annihilation-Remix-The-Giant-Easter-Egg-Song-Black-Ops-III-_The-Giant_-DLC.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/59rr184dip615yhih8pfb/Biersegen.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/91w8e149ftc0p0uk66qtd/Call-of-Duty_-WAW-Der-Riese-Easter-Egg-song-_Beauty-of-Annihilation_-Elena-Siegman-Kevin-Sherwood.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/gjez0o9slqkgh7afymngn/Coolio-Gangstas-Paradise-Official-Music-Video-HD-1080p.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/tiynyo2sg0ho3zr8pj07n/Dame-Low-Life.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/pb948wijeklww740xun9r/Danzel-vs-DJ-Frank-My-Arms-Keep-Missing-You.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/76alr2i8v01g12gx3sek0/Der-Eisendrache-Easter-Egg-song-_Dead-Again_-lyrics-Call-of-Duty_-Black-Ops-3-Elena-Siegman.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/dv8qcm1sqynowtb19y7ro/Der-Eisendrache-Gramophone-Easter-Egg-Song.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/0fcfkavxk54g4mfl9q7d6/Detektiv-Conan-Die-Liebe-kann-nicht-warten.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/2b061o92asqmpee913229/Detektiv-Conan-Der-Wind-singt-Lalala.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/3a4md4tj8xsgil0d9lr4i/Detektiv-Conan-Mit-aller-Kraft.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/ozk32u7m68gw4neog1rk2/Disturbed-The-Sound-Of-Silence.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/rwb7w9nhoazzfr03y7nfb/Falco-Mutter-Der-Mann-Mit-Dem-Koks-Ist-Da-Official-Music-Video-mp3.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/wla0awe94v5k4re8andoi/FARID-BANG-x-FRENCH-MONTANA-x-KHALED-MAGHREB-GANG-official-Video.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/fc6zxh100ryc0xp1hg0fu/In-Extremo-Feuertaufe-lyrics-HD-Album-_.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/zoxpbfpoo7mfs3hoilm1r/Khaled-Aicha.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/9mmrgtspfq7s9atqozya1/Khaled-C-est-la-vie-Clip-officiel.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/qiaan8rta8jocjbrketry/Nightcore-Meg-Dia-Monster-DotEXE-Remix.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/o1weyqqhtjbolylt387kx/Origins-Easter-Egg-song-_Archangel_-Elena-Siegman-Malukah-Clark-S.-Nova.mp3?dl=1",
-            "https://www.dropbox.com/scl/fi/jp1pzdordkw3ue79slg55/Tranzit-Easter-Egg-song-_Carrion_-Call-of-Duty_-Black-Ops-2-Clark-S.-Nova.mp3?dl=1"
+        const musicLinks = [
+            "https://www.dropbox.com/scl/fi/sdrt1fnzdjj63m0p2svfv/Beauty-of-Annihilation-Remix-The-Giant-Easter-Egg-Song-Black-Ops-III-_The-Giant_-DLC.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/59rr184dip615yhih8pfb/Biersegen.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/91w8e149ftc0p0uk66qtd/Call-of-Duty_-WAW-Der-Riese-Easter-Egg-song-_Beauty-of-Annihilation_-Elena-Siegman-Kevin-Sherwood.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/gjez0o9slqkgh7afymngn/Coolio-Gangstas-Paradise-Official-Music-Video-HD-1080p.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/tiynyo2sg0ho3zr8pj07n/Dame-Low-Life.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/pb948wijeklww740xun9r/Danzel-vs-DJ-Frank-My-Arms-Keep-Missing-You.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/76alr2i8v01g12gx3sek0/Der-Eisendrache-Easter-Egg-song-_Dead-Again_-lyrics-Call-of-Duty_-Black-Ops-3-Elena-Siegman.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/dv8qcm1sqynowtb19y7ro/Der-Eisendrache-Gramophone-Easter-Egg-Song.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/0fcfkavxk54g4mfl9q7d6/Detektiv-Conan-Die-Liebe-kann-nicht-warten.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/2b061o92asqmpee913229/Detektiv-Conan-Der-Wind-singt-Lalala.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/3a4md4tj8xsgil0d9lr4i/Detektiv-Conan-Mit-aller-Kraft.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/ozk32u7m68gw4neog1rk2/Disturbed-The-Sound-Of-Silence.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/rwb7w9nhoazzfr03y7nfb/Falco-Mutter-Der-Mann-Mit-Dem-Koks-Ist-Da-Official-Music-Video-mp3.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/wla0awe94v5k4re8andoi/FARID-BANG-x-FRENCH-MONTANA-x-KHALED-MAGHREB-GANG-official-Video.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/fc6zxh100ryc0xp1hg0fu/In-Extremo-Feuertaufe-lyrics-HD-Album-_.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/zoxpbfpoo7mfs3hoilm1r/Khaled-Aicha.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/9mmrgtspfq7s9atqozya1/Khaled-C-est-la-vie-Clip-officiel.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/qiaan8rta8jocjbrketry/Nightcore-Meg-Dia-Monster-DotEXE-Remix.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/o1weyqqhtjbolylt387kx/Origins-Easter-Egg-song-_Archangel_-Elena-Siegman-Malukah-Clark-S.-Nova.mp3?raw=1",
+            "https://www.dropbox.com/scl/fi/jp1pzdordkw3ue79slg55/Tranzit-Easter-Egg-song-_Carrion_-Call-of-Duty_-Black-Ops-2-Clark-S.-Nova.mp3?raw=1"
         ];
 
-        let currentSong = 0;
-        const audioPlayer = document.getElementById("audio-player");
+        function getRandomMusicLink() {
+            const randomIndex = Math.floor(Math.random() * musicLinks.length);
+            return musicLinks[randomIndex];
+        }
 
-        // Wenn ein Song zu Ende ist, den nächsten Song abspielen
-        audioPlayer.onended = function() {
-            currentSong++;
-            if (currentSong >= songs.length) {
-                currentSong = 0; // Wenn alle Songs abgespielt wurden, beginnt es wieder von vorne
-            }
-            audioPlayer.src = songs[currentSong];
+        function changeMusic() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioSource = document.getElementById('audioSource');
+            audioSource.src = getRandomMusicLink();
+            audioPlayer.load();
             audioPlayer.play();
-        };
-    </script>
+        }
 
+        // Starte Musik abspielen und lasse es in einer Schleife laufen
+        setInterval(changeMusic, 1000);  // Ändere die Musik alle 1 Sekunde (angepasst für den Loop)
+        changeMusic();
+    </script>
 </body>
 </html>
