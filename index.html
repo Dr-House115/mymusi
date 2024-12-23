@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musik Stream</title>
-</head>
-<body>
-    <h1>Willkommen zum Musikstream!</h1>
-    <audio id="audioPlayer" controls autoplay loop>
-        <source id="audioSource" src="" type="audio/mp3">
-        Dein Browser unterstützt das Abspielen von Audio-Dateien nicht.
-    </audio>
-    <script>
-        const musicLinks = [
-             "https://www.dropbox.com/scl/fi/sdrt1fnzdjj63m0p2svfv/Beauty-of-Annihilation-Remix-The-Giant-Easter-Egg-Song-Black-Ops-III-_The-Giant_-DLC.mp3?",
-            "https://www.dropbox.com/scl/fi/59rr184dip615yhih8pfb/Biersegen.mp3",
-            "https://www.dropbox.com/scl/fi/91w8e149ftc0p0uk66qtd/Call-of-Duty_-WAW-Der-Riese-Easter-Egg-song-_Beauty-of-Annihilation_-Elena-Siegman-Kevin-Sherwood.mp3",
-            "https://www.dropbox.com/scl/fi/gjez0o9slqkgh7afymngn/Coolio-Gangstas-Paradise-Official-Music-Video-HD-1080p.mp3",
-            "https://www.dropbox.com/scl/fi/tiynyo2sg0ho3zr8pj07n/Dame-Low-Life.mp3",
-            "https://www.dropbox.com/scl/fi/pb948wijeklww740xun9r/Danzel-vs-DJ-Frank-My-Arms-Keep-Missing-You.mp3",
-            "https://www.dropbox.com/scl/fi/76alr2i8v01g12gx3sek0/Der-Eisendrache-Easter-Egg-song-_Dead-Again_-lyrics-Call-of-Duty_-Black-Ops-3-Elena-Siegman.mp3",
-            "https://www.dropbox.com/scl/fi/dv8qcm1sqynowtb19y7ro/Der-Eisendrache-Gramophone-Easter-Egg-Song.mp3",
-            "https://www.dropbox.com/scl/fi/0fcfkavxk54g4mfl9q7d6/Detektiv-Conan-Die-Liebe-kann-nicht-warten.mp3",
-            "https://www.dropbox.com/scl/fi/2b061o92asqmpee913229/Detektiv-Conan-Der-Wind-singt-Lalala.mp3",
-            "https://www.dropbox.com/scl/fi/3a4md4tj8xsgil0d9lr4i/Detektiv-Conan-Mit-aller-Kraft.mp3",
-            "https://www.dropbox.com/scl/fi/ozk32u7m68gw4neog1rk2/Disturbed-The-Sound-Of-Silence.mp3",
-            "https://www.dropbox.com/scl/fi/rwb7w9nhoazzfr03y7nfb/Falco-Mutter-Der-Mann-Mit-Dem-Koks-Ist-Da-Official-Music-Video-mp3.mp3",
-            "https://www.dropbox.com/scl/fi/wla0awe94v5k4re8andoi/FARID-BANG-x-FRENCH-MONTANA-x-KHALED-MAGHREB-GANG-official-Video.mp3",
-            "https://www.dropbox.com/scl/fi/fc6zxh100ryc0xp1hg0fu/In-Extremo-Feuertaufe-lyrics-HD-Album-_.mp3",
-            "https://www.dropbox.com/scl/fi/zoxpbfpoo7mfs3hoilm1r/Khaled-Aicha.mp3",
-            "https://www.dropbox.com/scl/fi/9mmrgtspfq7s9atqozya1/Khaled-C-est-la-vie-Clip-officiel.mp3",
-            "https://www.dropbox.com/scl/fi/qiaan8rta8jocjbrketry/Nightcore-Meg-Dia-Monster-DotEXE-Remix.mp3",
-            "https://www.dropbox.com/scl/fi/o1weyqqhtjbolylt387kx/Origins-Easter-Egg-song-_Archangel_-Elena-Siegman-Malukah-Clark-S.-Nova.mp3",
-            "https://www.dropbox.com/scl/fi/jp1pzdordkw3ue79slg55/Tranzit-Easter-Egg-song-_Carrion_-Call-of-Duty_-Black-Ops-2-Clark-S.-Nova.mp3"
-        ];
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Musik Playlist</title>
+    </head>
+    <body>
+        <audio id="audioPlayer" autoplay loop>
+            <source id="audioSource" type="audio/mp3">
+            Dein Browser unterstützt das Abspielen von Audio-Dateien nicht.
+        </audio>
 
-        function getRandomMusicLink() {
-            const randomIndex = Math.floor(Math.random() * musicLinks.length);
-            return musicLinks[randomIndex];
-        }
+        <script>
+            var audioFiles = [
+"https://drive.google.com/uc?export=view&id=1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68t",
+"https://drive.google.com/uc?export=view&id=1fEHo42GdtuztH3ObnaW_StX_Qz5__LhV",
+"https://drive.google.com/uc?export=view&id=1WHTCYDGXGjjQOjT0EbU3-rL4S81UClva",
+"https://drive.google.com/uc?export=view&id=1ZI2KqOWjYwTsyTg2iWwMmWPc7K6B6mj7",
+"https://drive.google.com/uc?export=view&id=1tk65CjzzdvlsU53l-iwmMFTrgnzqQnf7",
+"https://drive.google.com/uc?export=view&id=1aG2FGb9rAZj5Tnhu6qZX_D1SubRgsmDf",
+"https://drive.google.com/uc?export=view&id=1C5mGrzoMHBRLBQBSGhwmQCcHmS6zkyuA",
+"https://drive.google.com/uc?export=view&id=1FXwgBr2sPbWDjYGRgrJiGigUb_4lYbD_",
+"https://drive.google.com/uc?export=view&id=1Dg2o8jIK_rYg-W7VmVuPOH8efLuUygP-",
+"https://drive.google.com/uc?export=view&id=1gZ3ZgR0qJ_SRwACUA9VMqIQUD6kk7_fF",
+"https://drive.google.com/uc?export=view&id=116HPRPpzHRa6CXknZFojIuq3IHNkWfCv",
+"https://drive.google.com/uc?export=view&id=1-em0Oib_HRA_IyszxkxzueQoYJ1sGxDw",
+"https://drive.google.com/uc?export=view&id=1kH89yTlrxH21mZdOur01LlrVsKbdBMm1",
+"https://drive.google.com/uc?export=view&id=15qZpj2J4XVcdR06bKoYrQkAMxxJOxWaY",
+"https://drive.google.com/uc?export=view&id=18ZNmq2aLDxqz08AWRdqoSjjXcuXgbBtX",
+"https://drive.google.com/uc?export=view&id=1N0svgTuWwP1j_d3VXyZJ62fbeJ0JaUmv",
+"https://drive.google.com/uc?export=view&id=1PKLCLtxiQ9lHc1KgjUiv3CH7XIE_BuQy",
+"https://drive.google.com/uc?export=view&id=1u0fW6iTekBvqJMkJBNK1ExDonkQgyRB3",
+"https://drive.google.com/uc?export=view&id=1fHcbojIQPx_SVwNxR9u7rXZOfsJRfIWS",
+"https://drive.google.com/uc?export=view&id=1M2BiedO3MuFasdy1NXlHda47S-hDoI7R"
+            ];
 
-        function changeMusic() {
-            const audioPlayer = document.getElementById('audioPlayer');
-            const audioSource = document.getElementById('audioSource');
-            audioSource.src = getRandomMusicLink();
-            audioPlayer.load();
-            audioPlayer.play();
-        }
+            var currentIndex = 0;
+            
+            function playNextSong() {
+                currentIndex = Math.floor(Math.random() * audioFiles.length);
+                var audioPlayer = document.getElementById("audioPlayer");
+                var audioSource = document.getElementById("audioSource");
+                audioSource.src = audioFiles[currentIndex];
+                audioPlayer.load();
+                audioPlayer.play();
+            }
 
-        // Starte Musik abspielen und lasse es in einer Schleife laufen
-        setInterval(changeMusic, 1000);  // Ändere die Musik alle 1 Sekunde
-        changeMusic();
-    </script>
-</body>
+            // Initial song
+            playNextSong();
+
+            // Change song when current song ends
+            document.getElementById("audioPlayer").onended = playNextSong;
+        </script>
+    </body>
 </html>
