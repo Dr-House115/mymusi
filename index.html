@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>Willkommen zum Musik-Stream!</h1>
-    <button onclick="startRandomMusic()">Starte Musik!</button>
+    
+    <!-- iframe für den DrivePlayer -->
+    <iframe id="drivePlayer" width="100%" height="300px" frameborder="0" allow="autoplay"></iframe>
 
     <script>
         // Liste der Google Drive Links zu den Musikdateien
@@ -18,7 +20,7 @@
             // Weitere Links hier hinzufügen
         ];
 
-        // Funktion, um zufällig einen Song auszuwählen und ihn in Google Drive abzuspielen
+        // Funktion, um zufällig einen Song auszuwählen und ihn im DrivePlayer abspielt
         function startRandomMusic() {
             const randomIndex = Math.floor(Math.random() * audioFiles.length);
             const selectedFile = audioFiles[randomIndex];
@@ -26,9 +28,13 @@
             // Google Drive Link vorbereiten, um den Player direkt zu öffnen
             const drivePlayerLink = selectedFile.replace('/view?usp=sharing', '/preview');  // Ändere "view" zu "preview"
 
-            // Öffnet den Link im neuen Tab und startet die Musik
-            window.open(drivePlayerLink, "_blank");
+            // Den Link im iframe für den DrivePlayer einfügen
+            const player = document.getElementById("drivePlayer");
+            player.src = drivePlayerLink;
         }
+
+        // Autoplay beim Laden der Seite (funktioniert ohne Play-Button)
+        window.onload = startRandomMusic;
     </script>
 </body>
 </html>
