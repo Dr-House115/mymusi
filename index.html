@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musik Stream</title>
+    <title>DrivePlayer Radio</title>
 </head>
 <body>
-    <audio id="audioPlayer" controls autoplay loop>
-        <source src="https://drive.google.com/uc?export=view&id=1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68t
-        " type="audio/mpeg">
-        Ihr Browser unterstützt dieses Audio-Format nicht.
-    </audio>
+    <h1>Willkommen zum Musik-Stream</h1>
+    <iframe id="drivePlayer" width="100%" height="300px" frameborder="0" allow="autoplay"></iframe>
 
     <script>
         const audioFiles = [
-            "https://drive.google.com/uc?export=view&id=1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68",
-            "https://drive.google.com/uc?export=view&id=1fEHo42GdtuztH3ObnaW_StX_Qz5__LhV",
-            "https://drive.google.com/uc?export=view&id=1WHTCYDGXGjjQOjT0EbU3-rL4S81UClva",
-            // Weitere Links hier hinzufügen
+            "https://drive.google.com/file/d/1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68t/view?usp=sharing",
+            "https://drive.google.com/file/d/1fEHo42GdtuztH3ObnaW_StX_Qz5__LhV/view?usp=sharing",
+            "https://drive.google.com/file/d/1WHTCYDGXGjjQOjT0EbU3-rL4S81UClva/view?usp=sharing",
+            // Weitere Dateien hier hinzufügen
         ];
 
-        const audioPlayer = document.getElementById("audioPlayer");
+        const player = document.getElementById('drivePlayer');
 
+        // Funktion, um einen zufälligen Song aus der Playlist zu wählen
         function playRandomSong() {
             const randomIndex = Math.floor(Math.random() * audioFiles.length);
-            audioPlayer.src = audioFiles[randomIndex];
-            audioPlayer.play();
+            const selectedFile = audioFiles[randomIndex];
+            const drivePlayerLink = "https://driveplayer.net/#" + selectedFile;
+            player.src = drivePlayerLink;
         }
 
-        audioPlayer.onended = playRandomSong; // Wenn das Lied endet, wird ein zufälliges neues abgespielt
+        // Die Funktion ausführen, um den ersten Song abzuspielen
+        playRandomSong();
 
-        playRandomSong(); // Starte das erste zufällige Lied
+        // Wenn der Song zu Ende ist, wird ein zufälliger Song geladen
+        setInterval(playRandomSong, 10000); // Alle 10 Sekunden ein neuer zufälliger Song (je nach Songlänge anpassen)
     </script>
 </body>
 </html>
