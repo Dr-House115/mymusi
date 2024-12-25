@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Willkommen zum Musik-Stream!</h1>
-    <iframe id="drivePlayer" width="100%" height="300px" frameborder="0" allow="autoplay"></iframe>
+    <button onclick="startRandomMusic()">Starte Musik!</button>
 
     <script>
         const audioFiles = [
@@ -17,23 +17,15 @@
             // Weitere Dateien hier hinzufügen
         ];
 
-        const player = document.getElementById('drivePlayer');
-
-        // Funktion, um einen zufälligen Song aus der Playlist zu wählen
-        function playRandomSong() {
+        // Funktion, um ein zufälliges Musikstück zu wählen und es im DrivePlayer zu starten
+        function startRandomMusic() {
             const randomIndex = Math.floor(Math.random() * audioFiles.length);
             const selectedFile = audioFiles[randomIndex];
             const drivePlayerLink = "https://driveplayer.net/#" + selectedFile;
-            player.src = drivePlayerLink; // Setzt den Player-Link auf die ausgewählte Datei
+            
+            // Öffnet den Link im neuen Tab
+            window.open(drivePlayerLink, "_blank");
         }
-
-        // Die Funktion ausführen, um den ersten Song abzuspielen
-        playRandomSong();
-
-        // Wenn der Song zu Ende ist, wird ein zufälliger Song geladen
-        player.onload = function() {
-            setInterval(playRandomSong, 10000); // Alle 10 Sekunden ein neuer zufälliger Song (je nach Songlänge anpassen)
-        };
     </script>
 </body>
 </html>
