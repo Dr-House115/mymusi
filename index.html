@@ -10,20 +10,24 @@
     <button onclick="startRandomMusic()">Starte Musik!</button>
 
     <script>
+        // Array mit Google Drive Links zu deinen Musikdateien
         const audioFiles = [
-            "https://drive.google.com/file/d/1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68t/view?usp=sharing",
+             "https://drive.google.com/file/d/1LYjCp0UYYXF8sobg9aO2UBEHuRCeZ68t/view?usp=sharing",
             "https://drive.google.com/file/d/1fEHo42GdtuztH3ObnaW_StX_Qz5__LhV/view?usp=sharing",
             "https://drive.google.com/file/d/1WHTCYDGXGjjQOjT0EbU3-rL4S81UClva/view?usp=sharing",
-            // Weitere Dateien hier hinzufügen
+
+            // Weitere Links hier hinzufügen
         ];
 
-        // Funktion, um ein zufälliges Musikstück zu wählen und es im DrivePlayer zu starten
+        // Funktion, die einen zufälligen Song auswählt und im DrivePlayer abspielt
         function startRandomMusic() {
             const randomIndex = Math.floor(Math.random() * audioFiles.length);
             const selectedFile = audioFiles[randomIndex];
+
+            // DrivePlayer Link erstellen
             const drivePlayerLink = "https://driveplayer.net/#" + selectedFile;
-            
-            // Öffnet den Link im neuen Tab
+
+            // Den Link in einem neuen Tab öffnen
             window.open(drivePlayerLink, "_blank");
         }
     </script>
